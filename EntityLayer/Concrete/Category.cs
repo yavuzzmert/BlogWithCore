@@ -20,5 +20,8 @@ namespace EntityLayer.Concrete
 
 
         public bool CategoryStatus { get; set; }
+
+        //blog foreign key
+        public List<Blog> Blogs { get; set; }
     }
 }

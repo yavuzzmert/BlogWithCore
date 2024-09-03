@@ -27,5 +27,14 @@ namespace EntityLayer.Concrete
 
 
         public bool BlogStatus { get; set; }
+
+        //category
+        public int CategoryID { get; set; }
+
+        public Category Category { get; set; }
+
+
+        //comments
+        public List<Comment> Comments { get; set; }
     }
 }
