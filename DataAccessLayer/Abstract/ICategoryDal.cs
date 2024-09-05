@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ICategoryDal
+    public interface ICategoryDal : IGenericDal<Category>
     {
    
+        /*
         //tüm category getir CRUD için read
         List<Category> ListAllCategory();
 
@@ -25,6 +26,7 @@ namespace DataAccessLayer.Abstract
 
         //id'ye göre category getir, sil, güncelle için
         Category GetById(int id);
+        */
         
     }
 }

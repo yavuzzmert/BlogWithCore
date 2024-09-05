@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IBlogDal
+    public interface IBlogDal : IGenericDal<Blog>
     {
         
+        /*
         //tüm blog getir CRUD için read
         List<Blog> ListAllBlog();
 
@@ -25,6 +26,7 @@ namespace DataAccessLayer.Abstract
 
         //id'ye göre blog getir, sil, güncelle için
         Blog GetById(int id);
+        */
         
     }
 }
