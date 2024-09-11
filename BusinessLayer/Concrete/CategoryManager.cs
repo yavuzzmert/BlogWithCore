@@ -11,22 +11,27 @@ namespace BusinessLayer.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        CategoryRepository categoryRepository = new CategoryRepository();
+        //CategoryRepository categoryRepository = new CategoryRepository();
+        GenericRepository<Category> repo = new GenericRepository<Category> ();
 
         public void CategoryAdd(Category category)
         {
+            /*
             if (category.CategoryName != "" && category.CategoryDescription != "" && category.CategoryName.Length >= 5 && category.CategoryStatus == true)
             { categoryRepository.AddCategory(category); }
             else
             {
                 // hata mesajı - fluent validation
             }
-           
+           */
         }
 
         public void CategoryDelete(Category category)
         {
-            throw new NotImplementedException();
+            if(category.CategoryID != 0)
+            {
+                repo.Delete(category);
+            }            
         }
 
         public void CategoryUpdate(Category category)
