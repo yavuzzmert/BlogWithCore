@@ -1,4 +1,6 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Repositories;
 using EntityLayer.Concrete;
 using System;
@@ -11,6 +13,42 @@ namespace BusinessLayer.Concrete
 {
     public class CategoryManager : ICategoryService
     {
+
+        ICategoryDal _categoryDal;
+
+        public CategoryManager(ICategoryDal categoryDal)
+        {
+            _categoryDal = categoryDal;
+        }
+
+        public void CategoryAdd(Category category)
+        {
+            _categoryDal.Insert(category);
+        }
+
+        public void CategoryDelete(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
+
+        public Category GetById(int id)
+        {
+           return _categoryDal.GetById(id);
+        }
+
+        public List<Category> GetList()
+        {
+             return _categoryDal.GetListAll();
+        }
+
+
+
+        /*
         //CategoryRepository categoryRepository = new CategoryRepository();
         GenericRepository<Category> repo = new GenericRepository<Category> ();
 
@@ -24,29 +62,31 @@ namespace BusinessLayer.Concrete
                 // hata mesajı - fluent validation
             }
            */
-        }
 
-        public void CategoryDelete(Category category)
-        {
-            if(category.CategoryID != 0)
+
+        /*
+            public void CategoryDelete(Category category)
             {
-                repo.Delete(category);
-            }            
-        }
+                if(category.CategoryID != 0)
+                {
+                    repo.Delete(category);
+                }            
+            }
 
-        public void CategoryUpdate(Category category)
-        {
-            throw new NotImplementedException();
-        }
+            public void CategoryUpdate(Category category)
+            {
+                throw new NotImplementedException();
+            }
 
-        public Category GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+            public Category GetById(int id)
+            {
+                throw new NotImplementedException();
+            }
 
-        public List<Category> GetList()
-        {
-            throw new NotImplementedException();
-        }
+            public List<Category> GetList()
+            {
+                throw new NotImplementedException();
+            }
+        */
     }
 }
